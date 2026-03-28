@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="min-h-screen p-4 md:p-10 flex flex-col items-center justify-center backdrop-brightness-75">
+
+    <div class="w-full max-w-lg mx-auto">
+
+        <section class="mb-8">
+            <div class="relative group">
+                <input id="city-input" type="text" placeholder="Search City..." autocomplete="off"
+                    class="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-4 pr-36 shadow-2xl focus:ring-2 focus:ring-white/30 outline-none transition-all text-white placeholder:text-white/60">
+                <button id="search-btn"
+                    class="absolute top-2 right-2 bottom-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white hover:text-amber-400 font-bold px-6 rounded-xl border border-white/10 transition-all active:scale-95">
+                    Search
+                </button>
+            </div>
+        </section>
+
+        <section id="weather-result"
+            class="bg-white/10 backdrop-blur-xl border border-white/20 p-8 rounded-[3rem] shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] relative overflow-hidden text-white">
+
+            <div class="flex justify-between items-start mb-8">
+                <div>
+                    <h2 id="city-name" class="text-4xl font-black tracking-tighter">Gujranwala, PK</h2>
+                    <p id="date-string" class="text-white/70 text-sm font-medium mt-1">Saturday, March 27</p>
+                </div>
+                <img id="weather-icon" src="https://openweathermap.org/img/wn/02d@4x.png" alt="Weather"
+                    class="w-24 h-24 -mt-4 drop-shadow-[0_0_20px_rgba(255,255,255,0.5)]">
+            </div>
+
+            <div class="text-center mb-10">
+                <div class="flex justify-center items-start">
+                    <span id="temperature"
+                        class="text-9xl font-black tracking-tighter text-[#bea374] drop-shadow-[0_0_15px_rgba(190,163,116,0.5)]">26</span>
+                    <span class="text-4xl font-bold mt-6 text-[#ffda8c]">°C</span>
+                </div>
+                <p id="weather-description" class="text-xl font-medium tracking-[0.3em] uppercase text-white/80">Partly
+                    Cloudy</p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+
+                <div
+                    class="bg-white/5 border border-white/10 p-4 rounded-3xl flex items-center gap-4 hover:bg-white/10 transition">
+                    <span class="text-2xl">💧</span>
+                    <div>
+                        <p class="text-[10px] text-white/50 uppercase font-bold tracking-widest">Humidity</p>
+                        <p id="humidity" class="text-lg font-bold">58%</p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-white/5 border border-white/10 p-4 rounded-3xl flex items-center gap-4 hover:bg-white/10 transition">
+                    <span class="text-2xl">🌬️</span>
+                    <div>
+                        <p class="text-[10px] text-white/50 uppercase font-bold tracking-widest">Wind</p>
+                        <p id="wind-speed" class="text-lg font-bold">10 km/h</p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-white/5 border border-white/10 p-4 rounded-3xl flex items-center gap-4 hover:bg-white/10 transition">
+                    <span class="text-2xl">🌡️</span>
+                    <div>
+                        <p class="text-[10px] text-white/50 uppercase font-bold tracking-widest">Feels Like</p>
+                        <p id="feels-like" class="text-lg font-bold">28°C</p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-white/5 border border-white/10 p-4 rounded-3xl flex items-center gap-4 hover:bg-white/10 transition">
+                    <span class="text-2xl">🧭</span>
+                    <div>
+                        <p class="text-[10px] text-white/50 uppercase font-bold tracking-widest">Pressure</p>
+                        <p id="pressure" class="text-lg font-bold">1014 hPa</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <footer class="mt-8 text-center">
+
+        </footer>
+
+    </div>
+
+</body>
+
+<script src="app.js"></script>
+
+</html>

@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+
+
+body {
+    background-image: url('img.png'); /* Image ka path */
+    background-position: center;      /* Image center mein rahegi */
+    background-attachment: fixed;    /* Scroll karne par background move nahi karega */
+    
+    /* ASLI CHEEZ YE HAI: */
+    background-size: cover;          /* Image poori screen par stretch hue baghair fit ho jayegi */
+    background-repeat: no-repeat;    /* Image repeat nahi hogi agar screen bari ho */
+}
