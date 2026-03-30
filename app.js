@@ -26,12 +26,19 @@ const feelsLike = document.querySelector('#feels-like');
 
 const pressure = document.querySelector('#pressure');
 
+const weatherResult = document.querySelector('#weather-result');
+
+const errorMsg = document.querySelector('#error-msg');
+
 ///
 async function getWeather(city) {
     const url = `${base_url}?q=${city}&appid=${API_KEY}&units=metric`;
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data);
+    if (data.cod === '404') {
+        alert('❌ City not found! Please check spelling!');
+        return;
+    }
     // function call ho rha hai
      displayData(data);
 
@@ -41,16 +48,23 @@ async function getWeather(city) {
 // serach city btn
 
 searchBtn.addEventListener('click', () => {
+    weatherResult.classList.remove('hidden');
+    errorMsg.classList.add('hidden');
     getWeather(searchCity.value);
 })
 
 //
 window.addEventListener('load', () => {
-    navigator.geolocation.getCurrentPosition((position) => {
-    //    console.log(position.coords.latitude);
-    //     console.log(position.coords.longitude);
-    getWeatherByLocation(position.coords.latitude,position.coords.longitude);
-})
+   navigator.geolocation.getCurrentPosition(
+    (position) => {
+        // allow
+        getWeatherByLocation(position.coords.latitude, position.coords.longitude);
+    },
+    (error) => {
+        weatherResult.classList.add('hidden'); 
+        errorMsg.classList.remove('hidden');      
+    }
+)
 })
 
 
